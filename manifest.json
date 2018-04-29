@@ -1,0 +1,35 @@
+      {
+        // app description
+        "name": "scraper",
+        "version": "0.3",
+        "description": "test description",
+        "manifest_version": 2,
+
+        // background js
+        "background": {
+          "scripts": ["background.js"],
+          "persistent": true
+        },
+
+        "page_action": {
+          "default_icon": "shirt_icon.png",
+          "default_title": "a web scraper",
+          "default_popup": "popup.html"
+        },
+
+        "content_scripts": [{
+          "matches": ["*://www.ikea.com/*"],
+          "js": ["content.js"]
+        }],
+
+        "permissions": [
+          "activeTab",
+          "tabs",
+          "declarativeContent",
+          "storage"
+        ],
+
+        "icons": {
+          "16": "shirt_icon.png"
+        }
+      }
